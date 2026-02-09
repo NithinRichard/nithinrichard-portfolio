@@ -1,0 +1,41 @@
+---
+import Footer from '@/components/layout/footer.astro';
+import Head from '@/components/layout/head.astro';
+import { Header } from '@/components/layout/header';
+import { LoadingScreen } from '@/components/layout/loading-screen';
+
+type Props = {
+  title?: string;
+  description?: string;
+  openGraphImage?: { src: string; alt: string };
+};
+
+const { title, description, openGraphImage } = Astro.props;
+---
+
+<!doctype html>
+<!-- Portfolio of Nithin Richard - Full-Stack Engineer -->
+<html
+  lang="en"
+  class="font-inter [container-type:scroll-state] scroll-smooth scheme-dark"
+>
+  <Head
+    title={title}
+    description={description}
+    openGraphImage={openGraphImage}
+  />
+  <body
+    class="bg-neutrals-900 text-neutrals-50 selection:bg-primary selection:text-neutrals-50 antialiased"
+  >
+    <a
+      href="#main"
+      class="sr-only"
+    >
+      Skip to main content
+    </a>
+    <LoadingScreen client:load />
+    <Header client:idle />
+    <slot />
+    <Footer />
+  </body>
+</html>

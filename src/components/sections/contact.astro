@@ -1,0 +1,31 @@
+---
+import { ContactForm } from '@/components/contact-form';
+import { Container } from '@/components/ui/container';
+import Section from '@/components/ui/section.astro';
+import { Caption, Heading, Paragraph } from '@/components/ui/typography';
+---
+
+<Section
+  id="contact"
+  aria-labelledby="contact-heading"
+  hasBorderTop
+  hasGlowEffect
+  class="lg:after:hidden"
+>
+  <Container>
+    <div class="flex h-full w-full flex-col lg:relative lg:flex-row">
+      <div class="basis-full self-start lg:sticky lg:top-24">
+        <Caption id="contact-heading">Contact</Caption>
+        <Heading>Let's discuss your project</Heading>
+        <Paragraph>
+          Need a full-stack developer to build or improve your product? <span
+            class="text-neutrals-100">Let's discuss your requirements</span
+          > and I'll get back to you within 24 hours.
+        </Paragraph>
+      </div>
+      <div class="mt-10 basis-full lg:ms-10 lg:mt-0 xl:ms-20">
+        <ContactForm client:visible />
+      </div>
+    </div>
+  </Container>
+</Section>

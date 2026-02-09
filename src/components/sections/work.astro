@@ -1,0 +1,51 @@
+---
+import { Container } from '@/components/ui/container';
+import Section from '@/components/ui/section.astro';
+import { Caption, Heading, Paragraph } from '@/components/ui/typography';
+import { projects } from '@/lib/projects';
+---
+
+<Section
+  id="work"
+  aria-labelledby="work-heading"
+  hasBorderTop
+  hasGlowEffect
+  class="lg:border-neutrals-600 lg:border-t-[0.5px] lg:before:hidden lg:after:hidden"
+>
+  <Container>
+    <div class="flex flex-col items-center text-center mb-16">
+      <Caption id="work-heading">Work</Caption>
+      <Heading>Projects that deliver results</Heading>
+      <Paragraph>
+        Real-world production modules built with <span class="text-neutrals-100">clean architecture</span>, focused on scalability and maintainability.
+      </Paragraph>
+    </div>
+    
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project, index) => (
+        <article 
+          class={`group relative overflow-hidden rounded-xl border border-neutrals-600 bg-neutrals-800/50 p-6 transition-all duration-300 hover:border-primary hover:bg-neutrals-800/80 ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}
+        >
+          <div class="mb-4 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h3 class="mb-3 text-xl font-bold text-neutrals-50 group-hover:text-primary transition-colors">
+            {project.name}
+          </h3>
+          <p class="mb-4 text-sm text-neutrals-300 leading-relaxed">
+            {project.description}
+          </p>
+          <div class="border-t border-neutrals-600 pt-4">
+            <p class="text-xs text-neutrals-400">
+              <span class="font-semibold text-neutrals-200">Client Value:</span> {project.value}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</Section>

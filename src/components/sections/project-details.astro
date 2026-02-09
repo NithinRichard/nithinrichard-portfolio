@@ -1,0 +1,129 @@
+---
+import ProjectSection from '@/components/sections/project-section.astro';
+import { Button } from '@/components/ui/button';
+import { Container } from '@/components/ui/container';
+import { Icons } from '@/components/ui/icons';
+import { type Project } from '@/lib/sanity/get-projects';
+import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
+import { Image } from 'astro:assets';
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+---
+
+<section
+  aria-labelledby="project-details-heading"
+  class="bg-neutrals-900 after:from-neutrals-900 after:to-neutrals-900/60 relative flex min-h-screen w-full py-[14vh] after:absolute after:inset-0 after:h-full after:w-full after:bg-linear-to-t"
+>
+  <Image
+    alt={project.poster.alt}
+    loading="eager"
+    decoding="sync"
+    class="absolute inset-0 h-full w-full object-cover object-center"
+    style={{
+      backgroundColor: project.poster.asset.metadata.palette.dominant.background,
+    }}
+    {...generateImageSizeProps({
+      image: project.poster,
+      sizes: '(max-width: 1024px) 200vw, 100vw',
+    })}
+  />
+  <Container>
+    <div class="relative z-10 flex h-full flex-col justify-end">
+      <a
+        href="/#work"
+        class="group absolute start-0 top-0 flex items-center justify-center transition-opacity hover:opacity-80 focus-visible:opacity-80"
+      >
+        <Icons.ArrowLongLeft
+          aria-hidden
+          className="me-2 size-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
+        /> Back to projects
+      </a>
+      <h1
+        id="project-details-heading"
+        class="mb-4 text-4xl font-bold text-balance lg:text-6xl"
+      >
+        {project.name}
+      </h1>
+      <p
+        class="text-neutrals-50/90 mb-8 max-w-prose text-sm/relaxed text-pretty md:text-base/relaxed"
+      >
+        {project.description}
+      </p>
+      {
+        project.tags && (
+          <p class="text-neutrals-50/90 text-xs lg:text-sm">{project.tags.join(', ')}</p>
+        )
+      }
+      <hr class="from-neutrals-50/40 mt-4 mb-8 h-px border-0 bg-linear-to-r to-transparent" />
+      <div class="flex gap-x-4">
+        {
+          project.projecturl && (
+            <Button
+              as="a"
+              href={project.projecturl}
+              rel="noreferrer"
+              target="_blank"
+              size="small"
+            >
+              <Icons.Eye
+                aria-hidden
+                className="size-5 me-2"
+              />{' '}
+              View project
+            </Button>
+          )
+        }
+        {
+          project.githuburl && (
+            <Button
+              as="a"
+              href={project.githuburl}
+              rel="noreferrer"
+              target="_blank"
+              size="small"
+              isGhost
+            >
+              <Icons.GitHub
+                aria-hidden
+                className="size-5 me-2"
+              />{' '}
+              View source code
+            </Button>
+          )
+        }
+      </div>
+    </div>
+    {
+      project.sections && project.sections.length > 0 && (
+        <a
+          href="#project-gallery"
+          title="See project breakdown"
+          aria-label="See project breakdown"
+          class="absolute inset-x-0 bottom-[3vh] z-10 mx-auto w-fit animate-bounce"
+        >
+          <Icons.ArrowDownCircle className="size-9" />
+        </a>
+      )
+    }
+  </Container>
+</section>
+{
+  project.sections && (
+    <div
+      id="project-gallery"
+      aria-label="Project Gallery"
+    >
+      {project.sections.map((section, index) => (
+        <ProjectSection
+          section={section}
+          previousSectionType={project.sections[index - 1]?._type}
+          nextSectionType={project.sections[index + 1]?._type}
+        />
+      ))}
+    </div>
+  )
+}

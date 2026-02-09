@@ -1,0 +1,42 @@
+---
+import { TypingHeading } from '@/components/typing-heading';
+import { Caption, Paragraph } from '@/components/ui/typography';
+
+const headings = [
+  'Full-Stack Developer',
+  'React Expert',
+  'Node.js Developer',
+  'Problem Solver',
+  'API Architect',
+  'TypeScript Enthusiast',
+  'Clean Code Advocate',
+  'Database Designer',
+];
+---
+
+<section
+  id="about"
+  aria-labelledby="about-heading"
+  class="bg-neutrals-900 relative z-10 w-full"
+>
+  <div
+    class="flex w-full items-center max-lg:flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,min(11/12*100%/2,48rem))_minmax(0,min(11/12*100%/2,48rem))_minmax(0,1fr)] 2xl:grid-cols-[minmax(0,1fr)_minmax(0,min(80%/2,48rem))_minmax(0,min(80%/2,48rem))_minmax(0,1fr)]"
+  >
+    <div class="bg-neutrals-800 h-full max-h-svh flex items-center justify-center lg:col-start-1 lg:col-end-3 min-h-[400px]">
+      <div class="text-center p-12">
+        <span class="text-8xl font-bold text-primary">NR</span>
+        <p class="text-neutrals-400 mt-4">Nithin Richard</p>
+      </div>
+    </div>
+    <div class="w-full py-28 max-lg:mx-auto max-lg:w-11/12 max-lg:max-w-7xl lg:ps-10 xl:ps-20">
+      <Caption id="about-heading">About</Caption>
+      <TypingHeading
+        client:visible
+        headings={headings}
+      />
+      <Paragraph>
+        I'm Nithin Richard, a <span class="text-neutrals-100">Full-Stack Engineer</span> passionate about building complete web solutions that solve real business problems. I design and develop everything from <span class="text-neutrals-100">frontend interfaces</span> to <span class="text-neutrals-100">backend APIs</span>, authentication systems, database workflows, and deployment-ready architecture. My focus is on clean code, scalable architecture, and delivering products that clients can rely on.
+      </Paragraph>
+    </div>
+  </div>
+</section>
