@@ -100,10 +100,8 @@ function ServicesGrid() {
           <ServiceCardTitle>Custom Solution</ServiceCardTitle>
           <ServiceCardPrice>Let&apos;s talk</ServiceCardPrice>
           <ServiceCardDescription>
-            Need something specific? I&apos;m flexible and happy to discuss{' '}
-            <span className="text-neutrals-100">
-              custom solutions tailored to your unique requirements.
-            </span>
+            Need a custom full-stack solution? I design and build scalable web products
+            tailored to your business goals.
           </ServiceCardDescription>
         </div>
         <ServiceCardCallToAction />

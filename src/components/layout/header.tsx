@@ -1,9 +1,10 @@
-import lokkeestudiosWordmarkLogoImage from '@/assets/images/logos/lokkeestudios-wordmark.svg';
+import nithinRichardWordmark from '@/assets/images/logos/nithin-richard-wordmark.svg';
 import { MobileNavigation } from '@/components/layout/mobile-navigation';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { Image } from '@/components/ui/image';
 import { useScrollThreshold } from '@/hooks/use-scroll-threshold';
+import { siteConfig } from '@/lib/config/site';
 import { cn } from '@/lib/utils';
 
 const links = [
@@ -34,7 +35,7 @@ function Header() {
       <Container>
         <div
           className={cn(
-            'mt-4 rounded-full border-[0.5px] p-2 transition-colors duration-500',
+            'mt-4 rounded-full border-[0.5px] px-3 py-2 transition-colors duration-500',
             isBackgroundShown
               ? 'border-neutrals-50/20 bg-neutrals-900/60 shadow-[inset_0_1px_1px_0_rgb(255_254_249/0.3)] backdrop-blur-sm'
               : 'border-transparent bg-transparent',
@@ -67,13 +68,13 @@ function Header() {
                 href="/"
                 title="Navigate home"
                 data-astro-prefetch
-                className="hover:animate-jiggle"
+                className="hover:opacity-90 transition-opacity"
               >
                 <Image
-                  metadata={lokkeestudiosWordmarkLogoImage}
+                  metadata={nithinRichardWordmark}
+                  alt={siteConfig.name}
                   isAboveTheFold
-                  alt="LOKKEE STUDIOS"
-                  className="h-3.5 md:h-4"
+                  className="h-10 w-auto md:h-12"
                 />
               </a>
             </div>
@@ -85,7 +86,7 @@ function Header() {
                 isGhost
                 className="rounded-full"
               >
-                Hit us up
+                Get in touch
               </Button>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import lokkeestudiosLogo from '@/assets/images/logos/lokkeestudios.svg';
+import nithinRichardLogo from '@/assets/images/logos/nithin-richard.svg';
 import { useLockBody } from '@/hooks/use-lock-body';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -22,10 +22,10 @@ function LoadingScreen() {
           className="bg-neutrals-900 fixed inset-0 z-50 flex items-center justify-center"
         >
           <motion.img
-            src={lokkeestudiosLogo.src}
-            alt="LOKKEE STUDIOS"
-            width={lokkeestudiosLogo.width}
-            height={lokkeestudiosLogo.height}
+            src={nithinRichardLogo.src}
+            alt="Nithin Richard"
+            width={nithinRichardLogo.width}
+            height={nithinRichardLogo.height}
             decoding="sync"
             loading="eager"
             initial={{ opacity: 1, scale: 1 }}

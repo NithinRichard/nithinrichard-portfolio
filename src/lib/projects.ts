@@ -7,9 +7,19 @@ export type StaticProject = {
     description: string;
     tags: string[];
     value: string;
+    demoUrl?: string;
 };
 
 export const projects: StaticProject[] = [
+    {
+        id: '0',
+        name: 'Shopify E-commerce Store',
+        slug: 'shopify-store',
+        description: 'Custom Shopify storefront implementation focused on conversion-oriented UI, responsive product pages, and smooth checkout flow.',
+        tags: ['Shopify', 'Liquid', 'E-commerce', 'Frontend'],
+        value: 'Improved storefront UX and made product discovery and purchase flow faster for customers.',
+        demoUrl: 'https://thrifttee.in/',
+    },
     {
         id: '1',
         name: 'Tasheel Lab Management Platform',

@@ -1,7 +1,7 @@
 import type { Testimonial } from '@/lib/sanity/get-testimonials';
 import { type Image } from '@/lib/sanity/sanity-image';
+import { hasSanityConfig, sanityClient } from '@/lib/sanity/client';
 import groq from 'groq';
-import { sanityClient } from 'sanity:client';
 
 type ImageSection = Image;
 
@@ -41,6 +41,10 @@ type Project = {
 };
 
 function getProjects() {
+  if (!hasSanityConfig) {
+    return Promise.resolve([] as Project[]);
+  }
+
   const query = groq`
     *[_type == "project"] | order(date desc) { 
       ...,

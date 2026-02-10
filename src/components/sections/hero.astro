@@ -1,16 +1,26 @@
 ---
-import { GridBackground } from '@/components/grid-background';
+import { BinaryRainOverlay } from '@/components/binary-rain-overlay';
+import { HeroGridTilt } from '@/components/hero-grid-tilt';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 ---
 
 <section
   aria-labelledby="hero-heading"
-  class="sticky inset-0 flex h-svh w-full flex-col justify-center py-28"
+  class="bg-neutrals-900 relative isolate sticky inset-0 flex h-svh w-full flex-col justify-center overflow-hidden py-28"
 >
-  <GridBackground client:visible />
+  <HeroGridTilt client:load />
+  <BinaryRainOverlay client:load />
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 z-10 bg-neutrals-900/16"
+  />
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 z-[11] bg-[radial-gradient(58%_58%_at_50%_45%,rgba(240,242,254,0.05)_0%,rgba(240,242,254,0.02)_42%,rgba(6,9,24,0.26)_100%)]"
+  />
   <Container>
-    <div class="flex flex-col items-center justify-center">
+    <div class="relative z-20 flex flex-col items-center justify-center">
       <h1
         id="hero-heading"
         class="from-neutrals-50 to-primary bg-radial from-50% bg-clip-text text-center text-4xl/tight font-bold text-balance text-transparent sm:text-5xl/tight md:text-7xl lg:text-8xl/tight"

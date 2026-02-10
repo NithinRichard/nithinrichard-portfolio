@@ -41,9 +41,10 @@ function GridBackground() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none absolute inset-0 -z-50 overflow-hidden bg-primary bg-[size:103%_103%] bg-no-repeat object-fill"
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-primary bg-no-repeat object-fill"
       style={{
         backgroundImage: `url(${futureGridImage.src})`,
+        backgroundSize: '103% 103%',
         backgroundPosition: useMotionTemplate`calc(50% + ${backgroundX}px) calc(50% + ${backgroundY}px)`,
       }}
     />

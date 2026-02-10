@@ -10,7 +10,7 @@ const siteConfig = {
   links: {
     sourcecode: 'https://github.com/nithinrichard',
     github: 'https://github.com/nithinrichard',
-    instagram: 'https://instagram.com/nithinrichard',
+    instagram: 'https://instagram.com/nithinrichrd',
     linkedin: 'https://linkedin.com/in/nithinrichard',
   },
 } as const;

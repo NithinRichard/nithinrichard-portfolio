@@ -1,10 +1,17 @@
 import { visionTool } from '@sanity/vision';
+import { createClient } from '@sanity/client';
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
-import { sanityClient } from 'sanity:client';
 import { Logo } from './desk/logo';
 import { schemas } from './schemas';
 import { myTheme } from './theme';
+
+const sanityClient = createClient({
+  projectId: process.env.PUBLIC_SANITY_PROJECT_ID || '',
+  dataset: process.env.PUBLIC_SANITY_DATASET || '',
+  apiVersion: '2024-01-01',
+  useCdn: false,
+});
 
 const { projectId, dataset } = sanityClient.config();
 
@@ -14,8 +21,8 @@ if (!projectId || !dataset)
   );
 
 const config = defineConfig({
-  name: 'lokkeestudios',
-  title: 'LOKKEE STUDIOS',
+  name: 'nithin-richard',
+  title: 'Nithin Richard',
   projectId,
   dataset,
   icon: Logo,

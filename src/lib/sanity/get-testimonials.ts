@@ -1,6 +1,6 @@
 import { type Image } from '@/lib/sanity/sanity-image';
+import { hasSanityConfig, sanityClient } from '@/lib/sanity/client';
 import groq from 'groq';
-import { sanityClient } from 'sanity:client';
 
 type Testimonial = {
   _id: string;
@@ -16,6 +16,10 @@ type Testimonial = {
 };
 
 function getTestimonials() {
+  if (!hasSanityConfig) {
+    return Promise.resolve([] as Testimonial[]);
+  }
+
   const query = groq`
     *[_type == "testimonial"] { 
       ...,

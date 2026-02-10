@@ -1,0 +1,113 @@
+---
+import { Container } from '@/components/ui/container';
+import Layout from '@/layouts/layout.astro';
+import { caseStudies } from '@/lib/case-studies';
+import { projects } from '@/lib/projects';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+
+export const getStaticPaths = (async () => {
+  return Object.entries(caseStudies)
+    .map(([slug, details]) => {
+      const project = projects.find((item) => item.slug === slug);
+      if (!project) return null;
+
+      return {
+        params: { slug },
+        props: { project, details },
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== null);
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { project, details } = Astro.props as Props;
+---
+
+<Layout
+  title={`${project.name} • Case Study`}
+  description={project.description}
+>
+  <main
+    id="main"
+    class="bg-neutrals-900 min-h-screen py-28"
+  >
+    <Container>
+      <a
+        href="/#work"
+        class="text-neutrals-300 hover:text-neutrals-50 inline-flex text-sm transition-colors"
+      >
+        ← Back to work
+      </a>
+
+      <header class="mt-8">
+        <p class="text-primary mb-3 text-xs tracking-[0.18em] uppercase">Case Study</p>
+        <h1 class="text-neutrals-50 text-4xl/tight font-bold text-balance md:text-6xl/tight">
+          {project.name}
+        </h1>
+        <p class="text-neutrals-200 mt-5 max-w-3xl text-base/relaxed">{details.summary}</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          {details.stack.map((item) => (
+            <span class="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+              {item}
+            </span>
+          ))}
+        </div>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="bg-primary text-neutrals-50 hover:opacity-90 inline-flex rounded-full px-5 py-2.5 text-sm font-semibold transition-opacity"
+          >
+            View Live Site
+          </a>
+        </div>
+      </header>
+
+      {
+        details.screenshots.length > 0 && (
+          <section class="mt-14 grid gap-4 md:grid-cols-2">
+            {details.screenshots.map((shot) => (
+              <figure class="border-neutrals-700 overflow-hidden rounded-xl border bg-neutrals-800/40">
+                <img
+                  src={shot.src}
+                  alt={`${project.name} screenshot - ${shot.label}`}
+                  loading="lazy"
+                  class="h-full w-full object-cover object-top"
+                />
+                <figcaption class="text-neutrals-300 border-neutrals-700 border-t px-4 py-3 text-sm">
+                  {shot.label}
+                </figcaption>
+              </figure>
+            ))}
+          </section>
+        )
+      }
+
+      <section class="mt-14 grid gap-8 md:grid-cols-2">
+        <article class="border-neutrals-700 rounded-xl border bg-neutrals-800/40 p-6">
+          <h2 class="text-neutrals-50 mb-4 text-xl font-semibold">My Role</h2>
+          <p class="text-neutrals-200 text-sm/relaxed">{details.role}</p>
+        </article>
+        <article class="border-neutrals-700 rounded-xl border bg-neutrals-800/40 p-6">
+          <h2 class="text-neutrals-50 mb-4 text-xl font-semibold">Project Highlights</h2>
+          <ul class="text-neutrals-200 grid gap-3 text-sm/relaxed">
+            {details.highlights.map((point) => (
+              <li>• {point}</li>
+            ))}
+          </ul>
+        </article>
+      </section>
+
+      <section class="mt-8 border-neutrals-700 rounded-xl border bg-neutrals-800/40 p-6">
+        <h2 class="text-neutrals-50 mb-4 text-xl font-semibold">Outcome</h2>
+        <ul class="text-neutrals-200 grid gap-3 text-sm/relaxed">
+          {details.outcomes.map((point) => (
+            <li>• {point}</li>
+          ))}
+        </ul>
+      </section>
+    </Container>
+  </main>
+</Layout>
