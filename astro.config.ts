@@ -14,6 +14,7 @@ const { name, backgroundColor, themeColor, url } = siteConfig;
 // https://astro.build/config
 const config = defineConfig({
   site: url,
+  output: 'static',
   adapter: vercel({
     webAnalytics: {
       enabled: true,
