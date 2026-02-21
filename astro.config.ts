@@ -18,7 +18,6 @@ const config = defineConfig({
     webAnalytics: {
       enabled: true,
     },
-    runtime: 'nodejs18.x',
   }),
   prefetch: {
     prefetchAll: true,
