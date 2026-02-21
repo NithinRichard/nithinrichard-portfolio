@@ -3,10 +3,5 @@
   "installCommand": "pnpm install",
   "framework": "astro",
   "devCommand": "pnpm run dev",
-  "outputDirectory": "dist",
-  "functions": {
-    "_render": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "outputDirectory": "dist"
 }
