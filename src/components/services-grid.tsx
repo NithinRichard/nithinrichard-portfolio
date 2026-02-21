@@ -22,87 +22,94 @@ function ServicesGrid() {
   return (
     <div
       onMouseMove={handleMouseMove}
-      className="group grid gap-6 lg:grid-cols-5"
+      className="group grid gap-6 lg:grid-cols-2"
     >
+      {/* Local Business Websites */}
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
         className="rounded-ss-xl max-lg:rounded-t-xl lg:col-span-2"
       >
         <div>
-          <ServiceCardTitle>Full-Stack Web App</ServiceCardTitle>
-          <ServiceCardPrice>Custom quote</ServiceCardPrice>
+          <ServiceCardTitle>Cafe & Restaurant Websites</ServiceCardTitle>
+          <ServiceCardPrice>₹5,000 - ₹15,000</ServiceCardPrice>
           <ServiceCardDescription>
-            Complete web applications with modern frontend, robust backend,
-            database design, and deployment-ready architecture.
+            Complete restaurant/cafe website with menu, location, contact form, and online ordering integration.
           </ServiceCardDescription>
           <ServiceCardList>
-            <ServiceCardBenefitListItem>React / Next.js frontend</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Node.js / Express backend</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>PostgreSQL database</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>RESTful API design</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Authentication & security</ServiceCardBenefitListItem>
-          </ServiceCardList>
-        </div>
-        <ServiceCardCallToAction />
-      </ServiceCard>
-      <ServiceCard
-        parentMousePositionX={mousePositionX}
-        parentMousePositionY={mousePositionY}
-        className="lg:col-span-3 lg:rounded-es-xl"
-      >
-        <div>
-          <ServiceCardTitle>API Development</ServiceCardTitle>
-          <ServiceCardPrice>Custom quote</ServiceCardPrice>
-          <ServiceCardDescription>
-            Well-documented, scalable RESTful APIs with clean architecture
-            and proper error handling.
-          </ServiceCardDescription>
-          <ServiceCardList>
-            <ServiceCardBenefitListItem>Clean architecture patterns</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Comprehensive documentation</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Input validation & sanitization</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Rate limiting & security</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Testing & reliability</ServiceCardBenefitListItem>
-          </ServiceCardList>
-        </div>
-        <ServiceCardCallToAction />
-      </ServiceCard>
-      <ServiceCard
-        parentMousePositionX={mousePositionX}
-        parentMousePositionY={mousePositionY}
-        className="lg:col-span-3 lg:rounded-se-xl"
-      >
-        <div>
-          <ServiceCardTitle>Dashboard & Admin Panels</ServiceCardTitle>
-          <ServiceCardPrice>Custom quote</ServiceCardPrice>
-          <ServiceCardDescription>
-            Data-driven dashboards and admin interfaces for operational
-            control and business insights.
-          </ServiceCardDescription>
-          <ServiceCardList>
-            <ServiceCardBenefitListItem>Interactive data visualization</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Role-based access control</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>CRUD operations</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Real-time updates</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Export & reporting</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Menu with categories</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Contact form for reservations</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Mobile-optimized design</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Online ordering (WhatsApp/Stripe)</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>24/7 availability</ServiceCardBenefitListItem>
           </ServiceCardList>
         </div>
         <ServiceCardCallToAction />
       </ServiceCard>
 
+      {/* Small Business Landing Page */}
+      <ServiceCard
+        parentMousePositionX={mousePositionX}
+        parentMousePositionY={mousePositionY}
+        className="lg:col-span-1 lg:rounded-es-xl"
+      >
+        <div>
+          <ServiceCardTitle>Small Business Landing Page</ServiceCardTitle>
+          <ServiceCardPrice>₹3,000 - ₹7,000</ServiceCardPrice>
+          <ServiceCardDescription>
+            Professional landing page for local businesses with services, testimonials, and contact form.
+          </ServiceCardDescription>
+          <ServiceCardList>
+            <ServiceCardBenefitListItem>Clear value proposition</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Testimonials section</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Contact form for leads</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>SEO optimized</ServiceCardBenefitListItem>
+          </ServiceCardList>
+        </div>
+        <ServiceCardCallToAction />
+      </ServiceCard>
+
+      {/* Full-Stack Web App */}
+      <ServiceCard
+        parentMousePositionX={mousePositionX}
+        parentMousePositionY={mousePositionY}
+        className="lg:col-span-1 lg:rounded-se-xl"
+      >
+        <div>
+          <ServiceCardTitle>Full-Stack Web App</ServiceCardTitle>
+          <ServiceCardPrice>Custom quote</ServiceCardPrice>
+          <ServiceCardDescription>
+            Complete web applications with modern frontend, robust backend, database design, and deployment-ready architecture.
+          </ServiceCardDescription>
+          <ServiceCardList>
+            <ServiceCardBenefitListItem>React/Next.js frontend</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Node.js backend</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>PostgreSQL database</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Authentication & security</ServiceCardBenefitListItem>
+          </ServiceCardList>
+        </div>
+        <ServiceCardCallToAction />
+      </ServiceCard>
+
+      {/* Simple E-commerce */}
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
         className="rounded-ee-xl max-lg:rounded-b-xl lg:col-span-2"
       >
         <div>
-          <ServiceCardTitle>Custom Solution</ServiceCardTitle>
-          <ServiceCardPrice>Let&apos;s talk</ServiceCardPrice>
+          <ServiceCardTitle>Simple E-commerce Store</ServiceCardTitle>
+          <ServiceCardPrice>₹10,000 - ₹25,000</ServiceCardPrice>
           <ServiceCardDescription>
-            Need a custom full-stack solution? I design and build scalable web products
-            tailored to your business goals.
+            Online store for small products with shopping cart, checkout, and product management.
           </ServiceCardDescription>
+          <ServiceCardList>
+            <ServiceCardBenefitListItem>Product catalog</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Shopping cart & checkout</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Stripe payment integration</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Easy product management</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Mobile-friendly shopping</ServiceCardBenefitListItem>
+          </ServiceCardList>
         </div>
         <ServiceCardCallToAction />
       </ServiceCard>
