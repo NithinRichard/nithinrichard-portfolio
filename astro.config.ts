@@ -1,7 +1,6 @@
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
@@ -15,11 +14,6 @@ const { name, backgroundColor, themeColor, url } = siteConfig;
 const config = defineConfig({
   site: url,
   output: 'static',
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
   prefetch: {
     prefetchAll: true,
   },
